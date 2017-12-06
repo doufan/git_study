@@ -1,0 +1,44 @@
+
+课程4：使用GitHub协作
+
+课程4-3.创建GitHub账户
+创建 GitHub 账户
+在本节课中，你将在 GitHub 上分享更改，因此，你需要使用 GitHub 帐户。如果尚没有此帐户，可以访问 github.com 并单击“注册 GitHub”来创建一个帐户。
+
+在该网站要求你选择套餐时，可选择免费套餐，因为本课程不会使用任何付费功能。
+
+设置密码缓存
+每次通过命令行向 GitHub 发送更改时，都需要键入密码，以证明你有权修改版本库。这可能很快会让人觉得厌烦，因此，许多人都喜欢设置密码缓存，此功能让你只需键入密码一次，以后就会自动在该计算机上填写密码。要这样做，请按照此处的说明进行操作。如果使用 Windows 并在前面按照我们的 Git 安装说明进行操作，则你使用的是 msysgit，因此可以按照 msysgit 的说明进行操作。
+
+Caching your GitHub password in Git
+WINDOWS
+If you're cloning GitHub repositories using HTTPS, you can use a credential helper to tell Git to remember your GitHub username and password every time it talks to GitHub.
+
+If you clone GitHub repositories using SSH, then you authenticate using SSH keys instead of a username and password. For help setting up an SSH connection, see Generating an SSH Key.
+
+Tip: You need Git 1.7.10 or newer to use the credential helper.
+You can also install a native Git shell, such as Git for Windows. With Git for Windows, running the following in the command line will store your credentials:
+
+git config --global credential.helper wincred
+
+我创建的GitHub上的远程repository的URL：https://github.com/doufan/git_study.git
+
+
+…or create a new repository on the command line
+
+echo "# git_study" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/doufan/git_study.git
+git push -u origin master
+
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/doufan/git_study.git
+git push -u origin master
+
+
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
