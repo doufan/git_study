@@ -21,6 +21,8 @@ You can also install a native Git shell, such as Git for Windows. With Git for W
 
 git config --global credential.helper wincred
 
+我的好像只是首次向远程代码库push的时候输入了一次用户名和密码，后边push和pull都没有再提示输入用户名和密码了。
+
 我创建的GitHub上的远程repository的URL：https://github.com/doufan/git_study.git
 
 
@@ -42,3 +44,47 @@ git push -u origin master
 
 …or import code from another repository
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+
+"git remote -v":显示远程代码库的详细信息，主要是包括URL。
+"git push origin master"：将本地master分支推送到远程代码库。
+"git pull origin master"：将远程代码库的更改拉取到本地代码库。
+
+"origin"只是在本地给远程代码库的某个分支起的一个名字，不一定非要用这个名字，但是，一般情况下，当远程代码库只有一个分支时，就把这个分支作为“起源”，也就是“origin”。
+
+"git push": git 推送
+"git pull": git 拉取
+"remote": 远程
+
+
+课程4-11.练习：Fork版本库
+fork：fork是直接将别人在GitHub上的代码库复制一份到自己的GitHub上。
+
+当从GitHub上clone代码库到本地时，"git clone"指令已经自动为clone到本地的远程代码库add了远程代码库链接。所以不用再在本地运行"git remote add"指令了。
+
+
+课程4-19.练习：更新远程分支的本地副本
+
+"git fetch"：更新远程origin的所有分支到本地副本，但不和本地master合并，而是在origin/mater上。
+
+"git pull"等同于"git fetch"+"git merge"
+
+"git branch -a"可以显示所有的分支，包括远程分支。
+
+课程4-21.练习：快速合并
+快速合并：判断是否为快速合并的唯一条件就是：被合并对象是否是要合并对象的父亲或者祖先，也就是说，a是否是可以通过b追溯到的。如果能够追溯到，那么a和b的合并就是快速合并。
+
+
+课程4-23.练习：创建拉取请求
+课程4-24.练习：更新拉取请求
+“拉取请求”(pull request)也可以称为“合并请求”(merge request),只是GitHub已经使用了pull这个词，所以就沿用下来了。
+"pull request"其实是说请求将某个分支合并到GitHub的master分支上去，因为master分支是第一个会被看到的分支。
+这个请求可以在GitHub上相应的远程代码库上看到。
+
+
+将版本库Fork和克隆你的Fork
+现在，你已了解如何将版本库Fork、推送对你的Fork所做的更改和创建拉取请求，现在你将准备协同编写在本节课开始时提到的“创造你的历险记”故事。要这样做，首先应将此版本库Fork。然后，克隆你的Fork，并创建一个分支以在其中进行更改。
+
+注意：可以直接更改你的Fork中的 master 分支，但是，在协同构建公共版本库时，标准的做法是在Fork内的非 master 分支中进行更改。这样一来，可以轻松让你的 master 分支与原始版本库的 master 保持同步，并在准备好时将 master 中的更改合并到分支中。
+
+Windows 用户请注意：随着故事的发展，它已经超出了 Windows 的路径长度限制。如果你在克隆时遇到错误，可以通过修改配置设置来解决它。请在 git bash 中运行此命令：git config --system core.longpaths true。
